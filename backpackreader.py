@@ -175,6 +175,9 @@ for i in sys.argv[1:]:
                 nozipsprites = True
             elif i[2:]=="wrap-scripts-in-sprites":
                 wrap_scripts_in_sprites = True
+            elif i[2:]=="version":
+                print("Backpack Reader v0.1")
+		sys.exit()
     else:
         backpack = open(i,"r")
 backpack = backpack or open("backpack.txt","r")
