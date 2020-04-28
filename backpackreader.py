@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os, json, sys, requests, time
 from shutil import rmtree,make_archive
 getMD5 = lambda file: \
@@ -60,14 +61,17 @@ NOTE: Sprites that had scripts wrapped into them don't work (yet?), therefore
       only the raw JSON text data of the scripts will be saved unless specified.
 
 Options:
+\t--    Empty argument, allows the program to run without extra args.
+
 \t-h    Prints this text and abruptly exits.
 
-\t-n    Automatically renames the folder name of an entry if it clashes with the
-        folder name of another created entry. This is on by default.
+\t-n    Automatically renames the folder name of an entry if it clashes
+        with the folder name of another created entry.
+        This is on by default.
         Turning this on turns -u and -o off.
 
-\t-o    Automatically overwrites entries when the current entry's name clashes
-        with an aleady added entry. This flag is not recommended.
+\t-o    Automatically overwrites entries when the current entry's name
+        clashes with an already added entry. This flag is not recommended.
         Turning this flag on turns -u and -n off.
 
 \t-s    Suppresses all output from this command.
@@ -78,14 +82,14 @@ Options:
         under a predesignated name, overwrite the old entry or
         abruptly exit.
         Turning this flag on turns -o and -n off.
-      
+
 \t-v    Turns verbose output on.
         Turning this flag on turns -s off.
-        
+
 \t--no-zip-sprites
         All extracted sprites won't automatically be zipped into
         .sprite2 files.
-        
+
 \t--wrap-scripts-in-sprites
         All scripts will be wrapped in sprites. Currently, the sprites
         made from this won't load, therefore those sprites won't be
@@ -95,6 +99,7 @@ Options:
         Prints the version number and exits.
         
 This tool was created on April 16, 2020 by Zexxerd (1a3c5e7g9i on Scratch).
+This tool requires at least Python3.6.
 """)
     sys.exit()
 def user_mkdir(d):
@@ -177,7 +182,7 @@ for i in sys.argv[1:]:
                 wrap_scripts_in_sprites = True
             elif i[2:]=="version":
                 print("Backpack Reader v0.1")
-		sys.exit()
+                sys.exit()
     else:
         backpack = open(i,"r")
 backpack = backpack or open("backpack.txt","r")
